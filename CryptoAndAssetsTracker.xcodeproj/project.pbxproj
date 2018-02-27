@@ -8,12 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		F6F3319020460D1400E1BE4B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F3318F20460D1400E1BE4B /* AppDelegate.swift */; };
-		F6F3319220460D1400E1BE4B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F3319120460D1400E1BE4B /* ViewController.swift */; };
-		F6F3319520460D1400E1BE4B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6F3319320460D1400E1BE4B /* Main.storyboard */; };
 		F6F3319720460D1400E1BE4B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F6F3319620460D1400E1BE4B /* Assets.xcassets */; };
 		F6F3319A20460D1400E1BE4B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6F3319820460D1400E1BE4B /* LaunchScreen.storyboard */; };
 		F6F331A520460D1400E1BE4B /* CryptoAndAssetsTrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F331A420460D1400E1BE4B /* CryptoAndAssetsTrackerTests.swift */; };
 		F6F331B020460D1400E1BE4B /* CryptoAndAssetsTrackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F331AF20460D1400E1BE4B /* CryptoAndAssetsTrackerUITests.swift */; };
+		F6F331BE20460D9300E1BE4B /* AssetsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F331BD20460D9300E1BE4B /* AssetsListViewController.swift */; };
+		F6F331C020460DA200E1BE4B /* AssetDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F331BF20460DA200E1BE4B /* AssetDetailViewController.swift */; };
+		F6F331C2204616AE00E1BE4B /* AssetNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F331C1204616AE00E1BE4B /* AssetNetworking.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,8 +37,6 @@
 /* Begin PBXFileReference section */
 		F6F3318C20460D1400E1BE4B /* CryptoAndAssetsTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CryptoAndAssetsTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6F3318F20460D1400E1BE4B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F6F3319120460D1400E1BE4B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		F6F3319420460D1400E1BE4B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F6F3319620460D1400E1BE4B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F6F3319920460D1400E1BE4B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F6F3319B20460D1400E1BE4B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -47,6 +46,9 @@
 		F6F331AB20460D1400E1BE4B /* CryptoAndAssetsTrackerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CryptoAndAssetsTrackerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6F331AF20460D1400E1BE4B /* CryptoAndAssetsTrackerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoAndAssetsTrackerUITests.swift; sourceTree = "<group>"; };
 		F6F331B120460D1400E1BE4B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F6F331BD20460D9300E1BE4B /* AssetsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetsListViewController.swift; sourceTree = "<group>"; };
+		F6F331BF20460DA200E1BE4B /* AssetDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetDetailViewController.swift; sourceTree = "<group>"; };
+		F6F331C1204616AE00E1BE4B /* AssetNetworking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetNetworking.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,11 +100,12 @@
 			isa = PBXGroup;
 			children = (
 				F6F3318F20460D1400E1BE4B /* AppDelegate.swift */,
-				F6F3319120460D1400E1BE4B /* ViewController.swift */,
-				F6F3319320460D1400E1BE4B /* Main.storyboard */,
 				F6F3319620460D1400E1BE4B /* Assets.xcassets */,
 				F6F3319820460D1400E1BE4B /* LaunchScreen.storyboard */,
 				F6F3319B20460D1400E1BE4B /* Info.plist */,
+				F6F331BD20460D9300E1BE4B /* AssetsListViewController.swift */,
+				F6F331BF20460DA200E1BE4B /* AssetDetailViewController.swift */,
+				F6F331C1204616AE00E1BE4B /* AssetNetworking.swift */,
 			);
 			path = CryptoAndAssetsTracker;
 			sourceTree = "<group>";
@@ -234,7 +237,6 @@
 			files = (
 				F6F3319A20460D1400E1BE4B /* LaunchScreen.storyboard in Resources */,
 				F6F3319720460D1400E1BE4B /* Assets.xcassets in Resources */,
-				F6F3319520460D1400E1BE4B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,8 +261,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F6F3319220460D1400E1BE4B /* ViewController.swift in Sources */,
+				F6F331C2204616AE00E1BE4B /* AssetNetworking.swift in Sources */,
 				F6F3319020460D1400E1BE4B /* AppDelegate.swift in Sources */,
+				F6F331BE20460D9300E1BE4B /* AssetsListViewController.swift in Sources */,
+				F6F331C020460DA200E1BE4B /* AssetDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,14 +300,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		F6F3319320460D1400E1BE4B /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F6F3319420460D1400E1BE4B /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		F6F3319820460D1400E1BE4B /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
