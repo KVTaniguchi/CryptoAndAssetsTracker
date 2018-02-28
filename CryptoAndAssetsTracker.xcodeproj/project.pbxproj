@@ -18,6 +18,7 @@
 		F6F331C620461DB700E1BE4B /* CorrectCoinList.json in Resources */ = {isa = PBXBuildFile; fileRef = F6F331C520461DB700E1BE4B /* CorrectCoinList.json */; };
 		F6F331C82046206A00E1BE4B /* MissingValuesCoinList.json in Resources */ = {isa = PBXBuildFile; fileRef = F6F331C72046206A00E1BE4B /* MissingValuesCoinList.json */; };
 		F6F331CB2046222700E1BE4B /* ToplistModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F331CA2046222700E1BE4B /* ToplistModels.swift */; };
+		F6F331CD2046561800E1BE4B /* TestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F331CC2046561800E1BE4B /* TestHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		F6F331C520461DB700E1BE4B /* CorrectCoinList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CorrectCoinList.json; sourceTree = "<group>"; };
 		F6F331C72046206A00E1BE4B /* MissingValuesCoinList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MissingValuesCoinList.json; sourceTree = "<group>"; };
 		F6F331CA2046222700E1BE4B /* ToplistModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToplistModels.swift; sourceTree = "<group>"; };
+		F6F331CC2046561800E1BE4B /* TestHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +125,7 @@
 				F6F331C420461DA000E1BE4B /* Test JSON */,
 				F6F331A420460D1400E1BE4B /* CryptoAndAssetsTrackerTests.swift */,
 				F6F331A620460D1400E1BE4B /* Info.plist */,
+				F6F331CC2046561800E1BE4B /* TestHelper.swift */,
 			);
 			path = CryptoAndAssetsTrackerTests;
 			sourceTree = "<group>";
@@ -301,6 +304,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F6F331A520460D1400E1BE4B /* CryptoAndAssetsTrackerTests.swift in Sources */,
+				F6F331CD2046561800E1BE4B /* TestHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

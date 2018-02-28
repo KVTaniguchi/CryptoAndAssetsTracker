@@ -19,7 +19,9 @@ class CryptoListViewController: UIViewController {
         
         let session = URLSession(configuration: .default)
         
-        if let url = URL(string: "https://min-api.cryptocompare.com/data/top/totalvol?limit=30&page=3&tsym=USD&extraParams=CryptoAndAssetsTracker") {
+//        https://min-api.cryptocompare.com/data/pricemultifull?fsyms=BTC&tsyms=USD
+        
+        if let url = URL(string: "https://min-api.cryptocompare.com/data/top/totalvol?limit=30&page=0&tsym=USD&extraParams=CryptoAndAssetsTracker") {
             let dataTask = session.dataTask(with: url, completionHandler: { (data, response, error) in
                 if let data = data {
                     

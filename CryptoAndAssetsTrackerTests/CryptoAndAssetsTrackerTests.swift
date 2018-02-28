@@ -11,7 +11,31 @@ import XCTest
 
 class CryptoAndAssetsTrackerTests: XCTestCase {
     
-    func testAssetModelInit() {
+    func testCoinListInits() {
+        guard let json = jsonFor("CorrectCoinList") else {
+            XCTFail("Failed to get data from json file")
+            return
+        }
         
+        do {
+            let coinList = try JSONDecoder().decode(CoinList.self, from: json)
+            
+            guard let firstCoinInfo = coinList.data.first?.coinInfo else {
+                XCTFail("No coins")
+                return
+            }
+            
+            XCTAssertEqual("1182", firstCoinInfo.id)
+            XCTAssertEqual("BTC", firstCoinInfo.name)
+            XCTAssertEqual("Bitcoin", firstCoinInfo.fullName)
+            XCTAssertEqual("/media/19633/btc.png", firstCoinInfo.imageURL)
+            XCTAssertEqual("/coins/btc/overview", firstCoinInfo.url)
+            XCTAssertEqual("SHA256", firstCoinInfo.algorithm)
+            XCTAssertEqual("PoW", firstCoinInfo.proofType)
+            XCTAssertEqual("Webpagecoinp", firstCoinInfo.documentType)
+        }
+        catch {
+            XCTFail("Failed to decode")
+        }
     }
 }
