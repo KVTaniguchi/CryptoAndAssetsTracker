@@ -1,5 +1,5 @@
 //
-//  AssetNetworking.swift
+//  ErrorTypes.swift
 //  CryptoAndAssetsTracker
 //
 //  Created by Kevin Taniguchi on 2/27/18.
@@ -8,3 +8,7 @@
 
 import Foundation
 
+enum NetworkingErrors: Error {
+    case badURL
+    case noData // we are going to assume we will *never* get an empty response
+}

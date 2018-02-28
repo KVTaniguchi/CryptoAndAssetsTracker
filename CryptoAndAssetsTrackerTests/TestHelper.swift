@@ -6,11 +6,12 @@
 //  Copyright © 2018 Taniguchi. All rights reserved.
 //
 
-import Foundation
+import XCTest
+@testable import CryptoAndAssetsTracker
 
 private class TestHelper {}
 
-public func jsonFor(_ path: String, ext: String = "json") -> Data? {
+func jsonFor(_ path: String, ext: String = "json") -> Data? {
     let actualBundle = Bundle(for: TestHelper.self)
     
     if let path = actualBundle.path(forResource: path, ofType: ext),
@@ -19,4 +20,16 @@ public func jsonFor(_ path: String, ext: String = "json") -> Data? {
     }
     
     return nil
+}
+
+extension XCTest {
+    static var defaultTimeout: TimeInterval {
+        return 2.0
+    }
+}
+
+extension XCTestCase {
+    open func expectation() -> XCTestExpectation {
+        return expectation(description: "\(#function), \(#file), \(#line)")
+    }
 }
