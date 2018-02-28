@@ -15,6 +15,9 @@
 		F6F331BE20460D9300E1BE4B /* AssetsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F331BD20460D9300E1BE4B /* AssetsListViewController.swift */; };
 		F6F331C020460DA200E1BE4B /* AssetDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F331BF20460DA200E1BE4B /* AssetDetailViewController.swift */; };
 		F6F331C2204616AE00E1BE4B /* AssetNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F331C1204616AE00E1BE4B /* AssetNetworking.swift */; };
+		F6F331C620461DB700E1BE4B /* CorrectCoinList.json in Resources */ = {isa = PBXBuildFile; fileRef = F6F331C520461DB700E1BE4B /* CorrectCoinList.json */; };
+		F6F331C82046206A00E1BE4B /* MissingValuesCoinList.json in Resources */ = {isa = PBXBuildFile; fileRef = F6F331C72046206A00E1BE4B /* MissingValuesCoinList.json */; };
+		F6F331CB2046222700E1BE4B /* ToplistModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F331CA2046222700E1BE4B /* ToplistModels.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +52,9 @@
 		F6F331BD20460D9300E1BE4B /* AssetsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetsListViewController.swift; sourceTree = "<group>"; };
 		F6F331BF20460DA200E1BE4B /* AssetDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetDetailViewController.swift; sourceTree = "<group>"; };
 		F6F331C1204616AE00E1BE4B /* AssetNetworking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetNetworking.swift; sourceTree = "<group>"; };
+		F6F331C520461DB700E1BE4B /* CorrectCoinList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CorrectCoinList.json; sourceTree = "<group>"; };
+		F6F331C72046206A00E1BE4B /* MissingValuesCoinList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MissingValuesCoinList.json; sourceTree = "<group>"; };
+		F6F331CA2046222700E1BE4B /* ToplistModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToplistModels.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +105,7 @@
 		F6F3318E20460D1400E1BE4B /* CryptoAndAssetsTracker */ = {
 			isa = PBXGroup;
 			children = (
+				F6F331C9204621F300E1BE4B /* Models */,
 				F6F3318F20460D1400E1BE4B /* AppDelegate.swift */,
 				F6F3319620460D1400E1BE4B /* Assets.xcassets */,
 				F6F3319820460D1400E1BE4B /* LaunchScreen.storyboard */,
@@ -113,6 +120,7 @@
 		F6F331A320460D1400E1BE4B /* CryptoAndAssetsTrackerTests */ = {
 			isa = PBXGroup;
 			children = (
+				F6F331C420461DA000E1BE4B /* Test JSON */,
 				F6F331A420460D1400E1BE4B /* CryptoAndAssetsTrackerTests.swift */,
 				F6F331A620460D1400E1BE4B /* Info.plist */,
 			);
@@ -126,6 +134,23 @@
 				F6F331B120460D1400E1BE4B /* Info.plist */,
 			);
 			path = CryptoAndAssetsTrackerUITests;
+			sourceTree = "<group>";
+		};
+		F6F331C420461DA000E1BE4B /* Test JSON */ = {
+			isa = PBXGroup;
+			children = (
+				F6F331C520461DB700E1BE4B /* CorrectCoinList.json */,
+				F6F331C72046206A00E1BE4B /* MissingValuesCoinList.json */,
+			);
+			path = "Test JSON";
+			sourceTree = "<group>";
+		};
+		F6F331C9204621F300E1BE4B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F6F331CA2046222700E1BE4B /* ToplistModels.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -244,6 +269,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6F331C620461DB700E1BE4B /* CorrectCoinList.json in Resources */,
+				F6F331C82046206A00E1BE4B /* MissingValuesCoinList.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,6 +289,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F6F331C2204616AE00E1BE4B /* AssetNetworking.swift in Sources */,
+				F6F331CB2046222700E1BE4B /* ToplistModels.swift in Sources */,
 				F6F3319020460D1400E1BE4B /* AppDelegate.swift in Sources */,
 				F6F331BE20460D9300E1BE4B /* AssetsListViewController.swift in Sources */,
 				F6F331C020460DA200E1BE4B /* AssetDetailViewController.swift in Sources */,

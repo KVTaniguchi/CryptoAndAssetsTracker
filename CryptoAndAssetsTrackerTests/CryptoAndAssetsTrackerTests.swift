@@ -14,6 +14,4 @@ class CryptoAndAssetsTrackerTests: XCTestCase {
     func testAssetModelInit() {
         
     }
-    
-    
 }

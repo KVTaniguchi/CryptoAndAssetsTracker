@@ -1,5 +1,5 @@
 //
-//  AssetDetailViewController.swift
+//  ToplistModels.swift
 //  CryptoAndAssetsTracker
 //
 //  Created by Kevin Taniguchi on 2/27/18.
@@ -7,8 +7,5 @@
 //
 
 import Foundation
-import UIKit
 
-class CryptoDetailViewController: UIViewController {
-    
-}
+

@@ -7,3 +7,35 @@
 //
 
 import Foundation
+import UIKit
+
+class CryptoListViewController: UIViewController {
+    
+    // first let's test that this api works
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        title = "Crypto List"
+        
+        let session = URLSession(configuration: .default)
+        
+        if let url = URL(string: "https://min-api.cryptocompare.com/data/top/totalvol?limit=30&page=3&tsym=USD&extraParams=CryptoAndAssetsTracker") {
+            let dataTask = session.dataTask(with: url, completionHandler: { (data, response, error) in
+                if let data = data {
+                    
+                    do {
+                        let json = try JSONSerialization.jsonObject(with: data, options: [])
+                        print("JSON: \(String(describing: json))")
+                    }
+                    catch {}
+                }
+                
+                if let error = error {
+                    print("err: \(error)")
+                }
+            })
+            
+            dataTask.resume()
+        }
+    }
+}

@@ -1,0 +1,348 @@
+{
+  "Message": "Success",
+  "Type": 100,
+  "SponsoredData": [
+    {
+      "CoinInfo": {
+        "Id": "225764",
+        "Name": "PRG",
+        "FullName": "Paragon",
+        "Internal": "PRG",
+        "ImageUrl": "/media/1384033/prg.png",
+        "Url": "/coins/prg/overview",
+        "Algorithm": "N/A",
+        "ProofType": "N/A",
+        "Type": 1,
+        "DocumentType": "Webpagecoinp"
+      },
+      "ConversionInfo": {
+        "Conversion": "direct",
+        "ConversionSymbol": "",
+        "CurrencyFrom": "PRG",
+        "CurrencyTo": "USD",
+        "Market": "CCCAGG",
+        "Supply": 164936612.264256,
+        "TotalVolume24H": 255702.117140082,
+        "SubBase": "5~",
+        "SubsNeeded": [
+          "5~CCCAGG~PRG~USD"
+        ],
+        "RAW": [
+          "5~CCCAGG~PRG~USD~2~0.263~1519773558~1~0.263~211360353~201423.7393099391~53023.50737281414~198715.51930994~52318.31167811417~0.2622~0.2679~0.2586~0.2621~0.2679~0.2586~HitBTC~7ffe9"
+        ]
+      }
+    },
+    {
+      "CoinInfo": {
+        "Id": "370889",
+        "Name": "REBL",
+        "FullName": "Rebellious",
+        "Internal": "REBL",
+        "ImageUrl": "/media/14913454/rebl.png",
+        "Url": "/coins/rebl/overview",
+        "Algorithm": "N/A",
+        "ProofType": "N/A",
+        "Type": 1,
+        "DocumentType": "Webpagecoinp"
+      },
+      "ConversionInfo": {
+        "Conversion": "multiply",
+        "ConversionSymbol": "BTC",
+        "CurrencyFrom": "REBL",
+        "CurrencyTo": "USD",
+        "Market": "CCCAGG",
+        "Supply": 172026902,
+        "TotalVolume24H": 22179292.308600057,
+        "SubBase": "5~",
+        "SubsNeeded": [
+          "5~CCCAGG~REBL~BTC",
+          "5~CCCAGG~BTC~USD"
+        ],
+        "RAW": [
+          "5~CCCAGG~REBL~BTC~4~0.00000507~1519773449~30081.7458~0.152514451206~15197734490001~21007102.73270003~109.90393421632501~20708411.9215~108.384800351005~0.00000526~0.00000598~0.00000489~0.00000526~0.00000598~0.00000489~BitZ~7ffe9",
+          "5~CCCAGG~BTC~USD~2~10741.38~1519773573~0.352~3777.5232~56665630~96278.71582456322~1023485899.7745454~95681.33680824513~1017306151.4558461~10326.5~10879.38~10154.24~10330.33~10884.71~10144.5~Bitstamp~7ffe9"
+        ]
+      }
+    }
+  ],
+  "Data": [
+    {
+      "CoinInfo": {},
+      "ConversionInfo": {}
+    },
+    {
+      "CoinInfo": {
+        "Id": "7605",
+        "Name": "ETH",
+        "FullName": "Ethereum",
+        "Internal": "ETH",
+        "ImageUrl": "/media/20646/eth_logo.png",
+        "Url": "/coins/eth/overview",
+        "Algorithm": "Ethash",
+        "ProofType": "PoW",
+        "Type": 1,
+        "DocumentType": "Webpagecoinp"
+      },
+      "ConversionInfo": {
+        "Conversion": "direct",
+        "ConversionSymbol": "",
+        "CurrencyFrom": "ETH",
+        "CurrencyTo": "USD",
+        "Market": "CCCAGG",
+        "Supply": 97884133.6241,
+        "TotalVolume24H": 989949.1769369725,
+        "SubBase": "5~",
+        "SubsNeeded": [
+          "5~CCCAGG~ETH~USD"
+        ],
+        "RAW": [
+          "5~CCCAGG~ETH~USD~2~878.07~1519773573~1.74322~1528.8213722~29840658~223984.53210949808~196721653.37393618~221934.84649607027~194941552.66944212~867.61~894.92~861.72~867.58~895.56~861.42~Coinbase~7ffe9"
+        ]
+      }
+    },
+    {
+      "CoinInfo": {
+        "Id": "3808",
+        "Name": "LTC",
+        "FullName": "Litecoin",
+        "Internal": "LTC",
+        "ImageUrl": "/media/19782/litecoin-logo.png",
+        "Url": "/coins/ltc/overview",
+        "Algorithm": "Scrypt",
+        "ProofType": "PoW",
+        "Type": 1,
+        "DocumentType": "Webpagecoinp"
+      },
+      "ConversionInfo": {
+        "Conversion": "direct",
+        "ConversionSymbol": "",
+        "CurrencyFrom": "LTC",
+        "CurrencyTo": "USD",
+        "Market": "CCCAGG",
+        "Supply": 55408633.1531371,
+        "TotalVolume24H": 2672206.2418923974,
+        "SubBase": "5~",
+        "SubsNeeded": [
+          "5~CCCAGG~LTC~USD"
+        ],
+        "RAW": [
+          "5~CCCAGG~LTC~USD~2~216.34~1519773570~1~216.22~203853714~652803.1587285002~142050412.6636891~643490.0678450399~140033622.75507283~218.62~223.21~212.13~218.7~223.33~211.88~Bitfinex~7ffe9"
+        ]
+      }
+    },
+    {
+      "CoinInfo": {
+        "Id": "5324",
+        "Name": "ETC",
+        "FullName": "Ethereum Classic",
+        "Internal": "ETC",
+        "ImageUrl": "/media/20275/etc2.png",
+        "Url": "/coins/etc/overview",
+        "Algorithm": "Ethash",
+        "ProofType": "PoW",
+        "Type": 1,
+        "DocumentType": "Webpagecoinp"
+      },
+      "ConversionInfo": {
+        "Conversion": "direct",
+        "ConversionSymbol": "",
+        "CurrencyFrom": "ETC",
+        "CurrencyTo": "USD",
+        "Market": "CCCAGG",
+        "Supply": 100166955,
+        "TotalVolume24H": 8955755.875292556,
+        "SubBase": "5~",
+        "SubsNeeded": [
+          "5~CCCAGG~ETC~USD"
+        ],
+        "RAW": [
+          "5~CCCAGG~ETC~USD~4~35.86~1519773550~2.23476561~80.09399979~3432812~1125201.9826148285~40491487.485501505~1110752.8743690006~39981800.38673276~35.24~37.16~34.72~35.23~37.25~34.68~Poloniex~7ffe9"
+        ]
+      }
+    },
+    {
+      "CoinInfo": {
+        "Id": "202330",
+        "Name": "BCH",
+        "FullName": "Bitcoin Cash / BCC",
+        "Internal": "BCH",
+        "ImageUrl": "/media/1383919/bch.jpg",
+        "Url": "/coins/bch/overview",
+        "Algorithm": "SHA256",
+        "ProofType": "PoW",
+        "Type": 1,
+        "DocumentType": "Webpagecoinp"
+      },
+      "ConversionInfo": {
+        "Conversion": "direct",
+        "ConversionSymbol": "",
+        "CurrencyFrom": "BCH",
+        "CurrencyTo": "USD",
+        "Market": "CCCAGG",
+        "Supply": 16990850,
+        "TotalVolume24H": 210317.32318768444,
+        "SubBase": "5~",
+        "SubsNeeded": [
+          "5~CCCAGG~BCH~USD"
+        ],
+        "RAW": [
+          "5~CCCAGG~BCH~USD~4~1247.78~1519773574~1.992872~2482.7199376~203853721~33737.25361401698~42365930.10597023~33585.84248397~42177675.52906842~1244.42~1295.46~1218.79~1244.26~1299.08~1217.15~Bitfinex~7ffe9"
+        ]
+      }
+    },
+    {
+      "CoinInfo": {
+        "Id": "27368",
+        "Name": "NEO",
+        "FullName": "NEO",
+        "Internal": "NEO",
+        "ImageUrl": "/media/1383858/neo.jpg",
+        "Url": "/coins/neo/overview",
+        "Algorithm": "N/A",
+        "ProofType": "N/A",
+        "Type": 1,
+        "DocumentType": "Webpagecoinp"
+      },
+      "ConversionInfo": {
+        "Conversion": "direct",
+        "ConversionSymbol": "",
+        "CurrencyFrom": "NEO",
+        "CurrencyTo": "USD",
+        "Market": "CCCAGG",
+        "Supply": 65000000,
+        "TotalVolume24H": 1773750.565134727,
+        "SubBase": "5~",
+        "SubsNeeded": [
+          "5~CCCAGG~NEO~USD"
+        ],
+        "RAW": [
+          "5~CCCAGG~NEO~USD~4~141.93~1519773571~1.18233613~167.85626037609998~203853717~310470.0184965076~43502892.74415869~309064.69389859017~43314639.72553526~134.37~145.45~130.13~134.4~145.93~129.88~Bitfinex~7ffe9"
+        ]
+      }
+    },
+    {
+      "CoinInfo": {
+        "Id": "5031",
+        "Name": "XRP",
+        "FullName": "Ripple",
+        "Internal": "XRP",
+        "ImageUrl": "/media/19972/ripple.png",
+        "Url": "/coins/xrp/overview",
+        "Algorithm": "N/A",
+        "ProofType": "N/A",
+        "Type": 1,
+        "DocumentType": "Webpagecoinp"
+      },
+      "ConversionInfo": {
+        "Conversion": "direct",
+        "ConversionSymbol": "",
+        "CurrencyFrom": "XRP",
+        "CurrencyTo": "USD",
+        "Market": "CCCAGG",
+        "Supply": 38305873865,
+        "TotalVolume24H": 230864955.559576,
+        "SubBase": "5~",
+        "SubsNeeded": [
+          "5~CCCAGG~XRP~USD"
+        ],
+        "RAW": [
+          "5~CCCAGG~XRP~USD~1~0.9388~1519773570~500~469.03000000000003~203853716~50249638.80353604~47183977.482233465~49993677.14619765~46946846.58613763~0.9296~0.9579~0.9177~0.9306~0.9597~0.9175~Bitfinex~7ffe9"
+        ]
+      }
+    },
+    {
+      "CoinInfo": {
+        "Id": "310829",
+        "Name": "TRX",
+        "FullName": "Tronix",
+        "Internal": "TRX",
+        "ImageUrl": "/media/12318089/trx.png",
+        "Url": "/coins/trx/overview",
+        "Algorithm": "N/A",
+        "ProofType": "N/A",
+        "Type": 1,
+        "DocumentType": "Webpagecoinp"
+      },
+      "ConversionInfo": {
+        "Conversion": "direct",
+        "ConversionSymbol": "",
+        "CurrencyFrom": "TRX",
+        "CurrencyTo": "USD",
+        "Market": "CCCAGG",
+        "Supply": 100000000000,
+        "TotalVolume24H": 4541979639.189985,
+        "SubBase": "5~",
+        "SubsNeeded": [
+          "5~CCCAGG~TRX~USD"
+        ],
+        "RAW": [
+          "5~CCCAGG~TRX~USD~2~0.04311~1519773555~4100~177.489~211360311~25983207.563633353~1097714.4660113796~25927413.504747834~1095357.0487745863~0.04187~0.04363~0.04085~0.04202~0.04414~0.04088~HitBTC~7ffe9"
+        ]
+      }
+    },
+    {
+      "CoinInfo": {
+        "Id": "771595",
+        "Name": "HT",
+        "FullName": "Huobi Token",
+        "Internal": "HT",
+        "ImageUrl": "/media/27010813/ht.png",
+        "Url": "/coins/ht/overview",
+        "Algorithm": "N/A",
+        "ProofType": "N/A",
+        "Type": 1,
+        "DocumentType": "Webpagecoinp"
+      },
+      "ConversionInfo": {
+        "Conversion": "multiply",
+        "ConversionSymbol": "ETH",
+        "CurrencyFrom": "HT",
+        "CurrencyTo": "USD",
+        "Market": "CCCAGG",
+        "Supply": 500000000,
+        "TotalVolume24H": 73935963.21468054,
+        "SubBase": "5~",
+        "SubsNeeded": [
+          "5~CCCAGG~HT~ETH",
+          "5~CCCAGG~ETH~USD"
+        ],
+        "RAW": [
+          "5~CCCAGG~HT~ETH~2~0.002938~1519773558~4771.59~14.0175476589~31027324921897726000~25935626.862300247~74184.8915240094~25864495.852300208~73981.68984670748~0.002664~0.003~0.00265~0.002665~0.003~0.00265~HuobiPro~7ffe9",
+          "5~CCCAGG~ETH~USD~2~878.07~1519773573~1.74322~1528.8213722~29840658~223984.53210949808~196721653.37393618~221934.84649607027~194941552.66944212~867.61~894.92~861.72~867.58~895.56~861.42~Coinbase~7ffe9"
+        ]
+      }
+    },
+    {
+      "CoinInfo": {
+        "Id": "172091",
+        "Name": "XRB",
+        "FullName": "Nano",
+        "Internal": "XRB",
+        "ImageUrl": "/media/1383674/xrb.png",
+        "Url": "/coins/xrb/overview",
+        "Algorithm": "Blake2b",
+        "ProofType": "PoW",
+        "Type": 1,
+        "DocumentType": "Webpagecoinp"
+      },
+      "ConversionInfo": {
+        "Conversion": "multiply",
+        "ConversionSymbol": "ETH",
+        "CurrencyFrom": "XRB",
+        "CurrencyTo": "USD",
+        "Market": "CCCAGG",
+        "Supply": 133248289,
+        "TotalVolume24H": 9381798.74051236,
+        "SubBase": "5~",
+        "SubsNeeded": [
+          "5~CCCAGG~XRB~ETH",
+          "5~CCCAGG~ETH~USD"
+        ],
+        "RAW": [
+          "5~CCCAGG~XRB~ETH~4~0.01765~1519773526~14.41~0.25432209~867922~1323280.0848330234~22799.161046392554~1308218.3215190007~22527.05529140716~0.01601~0.01867~0.0156~0.01601~0.01867~0.0156~Binance~7ffe9",
+          "5~CCCAGG~ETH~USD~2~878.07~1519773573~1.74322~1528.8213722~29840658~223984.53210949808~196721653.37393618~221934.84649607027~194941552.66944212~867.61~894.92~861.72~867.58~895.56~861.42~Coinbase~7ffe9"
+        ]
+      }
+    }
+  ]
+}
