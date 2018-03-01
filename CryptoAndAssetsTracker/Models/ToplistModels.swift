@@ -9,14 +9,14 @@
 import Foundation
 
 struct CoinList: Decodable {
-    let data: [Coin]
+    let data: [CoinData]
     
     enum CodingKeys: String, CodingKey {
         case data = "Data"
     }
 }
 
-struct Coin: Decodable {
+struct CoinData: Decodable {
     let coinInfo: CoinInfo
     
     enum CodingKeys: String, CodingKey {
@@ -45,4 +45,49 @@ struct CoinInfo: Decodable {
         case documentType = "DocumentType"
     }
 }
+
+
+struct CoinPriceMeta {
+    let display: [Coin]
+    
+    enum CodingKeys: String, CodingKey {
+        case display = "DISPLAY"
+    }
+    
+    struct Coin {
+        let coinPrices: [CoinPrices]
+        let name: String
+        
+        struct CodingKeys: CodingKey {
+            var stringValue: String
+            
+            init?(stringValue: String) {
+                self.stringValue = stringValue
+            }
+            
+            static func makeKey(name: String) -> CodingKeys? {
+                guard let key = CodingKeys(stringValue: name) else { return nil }
+                return key
+            }
+            
+            // there are not any Int value keys in these responses
+            var intValue: Int?
+            init?(intValue: Int) { return nil }
+        }
+        
+        struct CoinPrices {
+            let fromSymbol: String
+            let toSymbol: String
+            let price: String
+            let openDay: String
+            let highDay: String
+            let lowDay: String
+            let changeDay: String
+            let changePercentDay: String
+        }
+    }
+}
+
+
+
 

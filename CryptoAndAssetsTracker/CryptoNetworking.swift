@@ -51,29 +51,3 @@ class CryptoNetworkingController {
 struct Routes {
     static let baseHost = "https://min-api.cryptocompare.com"
 }
-
-
-//struct Data {
-//    static let path = "/data"
-//    
-//    struct Top {
-//        static let path = "/top"
-//        
-//        struct TotalVolume {
-//            static let path = "/totalvol"
-//        }
-//    }
-//    
-//    struct SinglePrice {
-//        static let path = "/price"
-//    }
-//    
-//    struct MultiFullDataPath {
-//        static let pricemultFullDataPath = "/pricemultifull"
-//    }
-//    
-//    struct HistodayPath {
-//        static let histodayPath = "/histoday"
-//    }
-//}
-

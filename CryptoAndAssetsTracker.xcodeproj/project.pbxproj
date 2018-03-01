@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F69C7CCF20479F3600E089A7 /* CorrectCoinPriceList.json in Resources */ = {isa = PBXBuildFile; fileRef = F69C7CCE20479F3500E089A7 /* CorrectCoinPriceList.json */; };
 		F6F3319020460D1400E1BE4B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F3318F20460D1400E1BE4B /* AppDelegate.swift */; };
 		F6F3319720460D1400E1BE4B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F6F3319620460D1400E1BE4B /* Assets.xcassets */; };
 		F6F3319A20460D1400E1BE4B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6F3319820460D1400E1BE4B /* LaunchScreen.storyboard */; };
@@ -42,6 +43,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F69C7CCE20479F3500E089A7 /* CorrectCoinPriceList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CorrectCoinPriceList.json; sourceTree = "<group>"; };
 		F6F3318C20460D1400E1BE4B /* CryptoAndAssetsTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CryptoAndAssetsTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6F3318F20460D1400E1BE4B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F6F3319620460D1400E1BE4B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 			children = (
 				F6F331C520461DB700E1BE4B /* CorrectCoinList.json */,
 				F6F331C72046206A00E1BE4B /* MissingValuesCoinList.json */,
+				F69C7CCE20479F3500E089A7 /* CorrectCoinPriceList.json */,
 			);
 			path = "Test JSON";
 			sourceTree = "<group>";
@@ -282,6 +285,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F6F331C620461DB700E1BE4B /* CorrectCoinList.json in Resources */,
+				F69C7CCF20479F3600E089A7 /* CorrectCoinPriceList.json in Resources */,
 				F6F331C82046206A00E1BE4B /* MissingValuesCoinList.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
