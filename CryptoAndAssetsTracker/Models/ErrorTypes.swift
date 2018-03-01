@@ -11,6 +11,7 @@ import Foundation
 enum NetworkingErrors: Error {
     case badURL
     case noData // we are going to assume we will *never* get an empty response
+    case unknown
 }
 
 enum ModelError: Error {

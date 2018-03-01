@@ -47,7 +47,7 @@ class CryptoNetworkingController {
         }.resume()
     }
 
-    func getCoinPrices(fromCrypto coins: [String], toCurrencies currencies: [String], completion: @escaping ((Result<CoinPriceMeta>) -> Void)) {
+    func getCoinPrices(fromCrypto coins: [String], toCurrencies currencies: [String] = ["USD"], completion: @escaping ((Result<CoinPriceMeta>) -> Void)) {
         var comps = URLComponents(string: Routes.baseHost)
         comps?.path = "/data/pricemultifull"
         let fromCryptoItem =  URLQueryItem(name: "fsyms", value: coins.joined(separator: ","))
@@ -77,8 +77,47 @@ class CryptoNetworkingController {
             }
         }.resume()
     }
+    
+    // convenience
+    func loadInitialValues(completion: @escaping (Result<[CoinViewModel]>) -> Void ) {
+        getTopVolumeCoins { [weak self] (result) in
+            guard let strongSelf = self else {
+                completion(Result(NetworkingErrors.unknown))
+                return
+            }
+            if let coinList = result.value {
+                let fromCryptosList = coinList.data.map{$0.coinInfo.name}
+                strongSelf.getCoinPrices(fromCrypto: fromCryptosList, completion: { (pricesResult) in
+                    guard let prices = pricesResult.value?.display else {
+                        completion(Result(NetworkingErrors.noData))
+                        return
+                    }
+                    completion(Result(strongSelf.generateViewModels(prices: prices, coinList: coinList)))
+                })
+            }
+            else if let error = result.error {
+                completion(Result(error))
+            }
+            else {
+                completion(Result(NetworkingErrors.noData))
+            }
+        }
+    }
+    
+    func generateViewModels(prices: [String: Coin], coinList: CoinList) -> [CoinViewModel] {
+        var coinViewModels = [CoinViewModel]()
+        for (key, value) in prices {
+            if let coinInfo = coinList.data.first(where: {$0.coinInfo.name == key})?.coinInfo {
+                let coinViewModel = CoinViewModel(info: coinInfo, coin: value)
+                coinViewModels.append(coinViewModel)
+            }
+        }
+        
+        return coinViewModels
+    }
 }
 
 struct Routes {
     static let baseHost = "https://min-api.cryptocompare.com"
+    static let imageHost = "https://www.cryptocompare.com"
 }

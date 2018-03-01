@@ -131,7 +131,7 @@ class NetworkingTests: XCTestCase {
                     print(error)
                 }
             }
-            }.resume()
+        }.resume()
         
         waitForExpectations(timeout: 5, handler: nil)
     }

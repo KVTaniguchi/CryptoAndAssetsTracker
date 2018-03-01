@@ -8,6 +8,11 @@
 
 import Foundation
 
+struct CoinViewModel {
+    let info: CoinInfo
+    let coin: Coin
+}
+
 struct CoinList: Decodable {
     let data: [CoinData]
     
@@ -66,20 +71,35 @@ struct Detail: Decodable {
     }
 }
 
+struct RawDetail: Decodable {
+    let total24HourVolume: Double
+    
+    enum CodingKeys: String, CodingKey {
+        case total24HourVolume = "VOLUME24HOURTO"
+    }
+}
+
 struct Coin: Decodable {
     
     let details: [String: Detail]
+    let rawDetails: [String: RawDetail]
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: GenericCodingKeys.self)
         
-        var dict = [String: Detail]()
+        var detailsDict = [String: Detail]()
+        var rawDetailsDict = [String: RawDetail]()
         for key in container.allKeys {
-            let data = try container.decode(Detail.self, forKey: key)
-            dict[key.stringValue] = data
+            if let data = try? container.decode(Detail.self, forKey: key) {
+                detailsDict[key.stringValue] = data
+            }
+            else if let rawData = try? container.decode(RawDetail.self, forKey: key) {
+                rawDetailsDict[key.stringValue] = rawData
+            }
         }
         
-        self.details = dict
+        self.details = detailsDict
+        self.rawDetails = rawDetailsDict
     }
 }
 
@@ -104,15 +124,17 @@ struct CoinPriceMeta: Decodable {
     }
 }
 
+// I need this due to the keys in the pricing responses not being known until the response is received
 struct GenericCodingKeys: CodingKey, ExpressibleByStringLiteral {
-    // MARK: CodingKey
     var stringValue: String
     var intValue: Int?
     
-    init?(stringValue: String) { self.stringValue = stringValue }
-    init?(intValue: Int) { return nil }
+    init?(stringValue: String) {
+        self.stringValue = stringValue
+    }
     
-    // MARK: ExpressibleByStringLiteral
+    // afaik none of these crypto keys are ints
+    init?(intValue: Int) { return nil }
     typealias StringLiteralType = String
     init(stringLiteral: StringLiteralType) { self.stringValue = stringLiteral }
 }
