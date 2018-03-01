@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import Kingfisher
 
 class CryptoListViewController: UITableViewController {
     private var dataSource = [CoinViewModel]() {
@@ -77,6 +78,7 @@ class CryptoListViewController: UITableViewController {
 }
 
 class ListCryptoCell: UITableViewCell {
+    let coinImageView = UIImageView()
     let fullNameLabel = UILabel()
     let abbrLabel = UILabel()
     let isoCurrencyLabel = UILabel()
@@ -84,6 +86,8 @@ class ListCryptoCell: UITableViewCell {
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
+        coinImageView.contentMode = .scaleAspectFit
         
         let nameSV = UIStackView(arrangedSubviews: [fullNameLabel, isoCurrencyLabel])
         nameSV.axis = .vertical
@@ -93,8 +97,11 @@ class ListCryptoCell: UITableViewCell {
         isoSV.axis = .vertical
         isoSV.spacing = 18
         
-        let fullSV = UIStackView(arrangedSubviews: [nameSV, isoSV, UIView()])
-        fullSV.spacing = 50
+        let fullSV = UIStackView(arrangedSubviews: [coinImageView, nameSV, isoSV, UIView()])
+        fullSV.spacing = 30
+        
+        coinImageView.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        coinImageView.widthAnchor.constraint(equalToConstant: 50).isActive = true
         
         fullSV.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(fullSV)
@@ -106,6 +113,10 @@ class ListCryptoCell: UITableViewCell {
     }
     
     func configure(viewModel: CoinViewModel, isoCurrency: String) {
+        if let url = viewModel.imageURL {
+            coinImageView.kf.setImage(with: url)
+        }
+        
         fullNameLabel.text = viewModel.info.fullName
         abbrLabel.text = viewModel.info.name
         isoCurrencyLabel.text = "Value in \(isoCurrency): "

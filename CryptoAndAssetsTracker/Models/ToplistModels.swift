@@ -11,6 +11,12 @@ import Foundation
 struct CoinViewModel {
     let info: CoinInfo
     let coin: Coin
+    
+    var imageURL: URL? {
+        var comps = URLComponents(string: Routes.imageHost)
+        comps?.path = info.imageURL
+        return comps?.url
+    }
 }
 
 struct CoinList: Decodable {
