@@ -68,7 +68,7 @@ class CryptoListViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedCoin = dataSource[indexPath.row]
-        let vc = CryptoDetailViewController(viewModel: selectedCoin)
+        let vc = CryptoDetailViewController(viewModel: selectedCoin, isoCurrency: currentiOSCurrency)
         navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -98,25 +98,23 @@ class ListCryptoCell: UITableViewCell {
         isoSV.spacing = 18
         
         let fullSV = UIStackView(arrangedSubviews: [coinImageView, nameSV, isoSV, UIView()])
+        fullSV.alignment = .center
         fullSV.spacing = 30
         
-        coinImageView.heightAnchor.constraint(equalToConstant: 50).isActive = true
         coinImageView.widthAnchor.constraint(equalToConstant: 50).isActive = true
+        coinImageView.heightAnchor.constraint(lessThanOrEqualToConstant: 60).isActive = true
         
         fullSV.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(fullSV)
         
-        fullSV.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 18).isActive = true
-        fullSV.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 18).isActive = true
-        fullSV.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -18).isActive = true
-        fullSV.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -18).isActive = true
+        fullSV.topAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.topAnchor, constant: 18).isActive = true
+        fullSV.leadingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.leadingAnchor, constant: 18).isActive = true
+        fullSV.trailingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.trailingAnchor, constant: -18).isActive = true
+        fullSV.bottomAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.bottomAnchor, constant: -18).isActive = true
     }
     
     func configure(viewModel: CoinViewModel, isoCurrency: String) {
-        if let url = viewModel.imageURL {
-            coinImageView.kf.setImage(with: url)
-        }
-        
+        coinImageView.kf.setImage(with: viewModel.imageURL)
         fullNameLabel.text = viewModel.info.fullName
         abbrLabel.text = viewModel.info.name
         isoCurrencyLabel.text = "Value in \(isoCurrency): "
