@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C05E8768F9BC32FD80AFF341 /* Pods_CryptoAndAssetsTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7EDCB42F7A4CEE68653566B /* Pods_CryptoAndAssetsTracker.framework */; };
+		F62D7DA62048AB990034B6AB /* MissingValuesPriceList.json in Resources */ = {isa = PBXBuildFile; fileRef = F62D7DA52048AB990034B6AB /* MissingValuesPriceList.json */; };
 		F69C7CCF20479F3600E089A7 /* CorrectCoinPriceList.json in Resources */ = {isa = PBXBuildFile; fileRef = F69C7CCE20479F3500E089A7 /* CorrectCoinPriceList.json */; };
 		F6F3319020460D1400E1BE4B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F3318F20460D1400E1BE4B /* AppDelegate.swift */; };
 		F6F3319720460D1400E1BE4B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F6F3319620460D1400E1BE4B /* Assets.xcassets */; };
@@ -47,6 +48,7 @@
 		29BA132827865B8D7789FD21 /* Pods-CryptoAndAssetsTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptoAndAssetsTracker.release.xcconfig"; path = "Pods/Target Support Files/Pods-CryptoAndAssetsTracker/Pods-CryptoAndAssetsTracker.release.xcconfig"; sourceTree = "<group>"; };
 		A604D261DE6DA243708A89B1 /* Pods-CryptoAndAssetsTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptoAndAssetsTracker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CryptoAndAssetsTracker/Pods-CryptoAndAssetsTracker.debug.xcconfig"; sourceTree = "<group>"; };
 		C7EDCB42F7A4CEE68653566B /* Pods_CryptoAndAssetsTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CryptoAndAssetsTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F62D7DA52048AB990034B6AB /* MissingValuesPriceList.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MissingValuesPriceList.json; sourceTree = "<group>"; };
 		F69C7CCE20479F3500E089A7 /* CorrectCoinPriceList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CorrectCoinPriceList.json; sourceTree = "<group>"; };
 		F6F3318C20460D1400E1BE4B /* CryptoAndAssetsTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CryptoAndAssetsTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6F3318F20460D1400E1BE4B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 				F6F331C520461DB700E1BE4B /* CorrectCoinList.json */,
 				F6F331C72046206A00E1BE4B /* MissingValuesCoinList.json */,
 				F69C7CCE20479F3500E089A7 /* CorrectCoinPriceList.json */,
+				F62D7DA52048AB990034B6AB /* MissingValuesPriceList.json */,
 			);
 			path = "Test JSON";
 			sourceTree = "<group>";
@@ -314,6 +317,7 @@
 				F6F331C620461DB700E1BE4B /* CorrectCoinList.json in Resources */,
 				F69C7CCF20479F3600E089A7 /* CorrectCoinPriceList.json in Resources */,
 				F6F331C82046206A00E1BE4B /* MissingValuesCoinList.json in Resources */,
+				F62D7DA62048AB990034B6AB /* MissingValuesPriceList.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

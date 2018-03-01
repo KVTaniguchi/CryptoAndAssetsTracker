@@ -79,13 +79,14 @@ class CryptoNetworkingController {
     }
     
     // convenience
-    func loadInitialValues(completion: @escaping (Result<[CoinViewModel]>) -> Void ) {
+    func loadInitialValues(stashCoinlist: @escaping ((CoinList) -> Void) ,completion: @escaping (Result<[CoinViewModel]>) -> Void ) {
         getTopVolumeCoins { [weak self] (result) in
             guard let strongSelf = self else {
                 completion(Result(NetworkingErrors.unknown))
                 return
             }
             if let coinList = result.value {
+                stashCoinlist(coinList)
                 let fromCryptosList = coinList.data.map{$0.coinInfo.name}
                 strongSelf.getCoinPrices(fromCrypto: fromCryptosList, completion: { (pricesResult) in
                     guard let prices = pricesResult.value?.display else {

@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import Kingfisher
 
-class CryptoListViewController: UITableViewController {
+class CryptoListViewController: UITableViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     private var dataSource = [CoinViewModel]() {
         didSet {
             DispatchQueue.main.async { [weak self] in
@@ -18,10 +18,25 @@ class CryptoListViewController: UITableViewController {
             }
         }
     }
+    private let picker = UIPickerView()
     
-    private var currentiOSCurrency = "USD" // start with USD by default
+    private var currentiOSCurrency = "USD" {
+        didSet {
+            if let currentList = stashedCoinlist?.data.map({$0.coinInfo.name}) {
+                CryptoNetworkingController.shared.getCoinPrices(fromCrypto: currentList, toCurrencies: [currentiOSCurrency]) {[weak self] (pricesResult) in
+                    guard let prices = pricesResult.value?.display, let coinlist = self?.stashedCoinlist else {
+                        return
+                    }
+                    
+                    self?.dataSource = CryptoNetworkingController.shared.generateViewModels(prices: prices, coinList: coinlist)
+                }
+            }
+        }
+    }
     
-    private let allCurrencies = Locale.isoCurrencyCodes
+    private let allCurrencies = ["USD", "EUR", "GBP", "CNY"]
+    private let dummy = UITextField(frame: .zero)
+    private var stashedCoinlist: CoinList?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +49,23 @@ class CryptoListViewController: UITableViewController {
         tableView.estimatedSectionFooterHeight = 0
         tableView.estimatedRowHeight = 44
         
+        picker.dataSource = self
+        picker.delegate = self
+        
+        let toolBar = UIToolbar()
+        toolBar.sizeToFit()
+        
+        let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(donePicker))
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancelPicker))
+        
+        toolBar.setItems([cancelButton, spaceButton, doneButton], animated: false)
+        
+        view.addSubview(dummy)
+        
+        dummy.inputView = picker
+        dummy.inputAccessoryView = toolBar
+        
         let pickerButton = UIButton(type: .custom)
         pickerButton.setTitle("Choose Currency", for: .normal)
         pickerButton.setTitleColor(view.tintColor, for: .normal)
@@ -41,13 +73,27 @@ class CryptoListViewController: UITableViewController {
         pickerButton.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: 50.0)
         tableView.tableHeaderView = pickerButton
         
-        CryptoNetworkingController.shared.loadInitialValues { [weak self] (result) in
+        CryptoNetworkingController.shared.loadInitialValues(stashCoinlist: { [weak self] coinList in
+            self?.stashedCoinlist = coinList
+        }) { [weak self] (result) in
             guard let viewModels = result.value else {
                 return
             }
-            
+
             self?.dataSource = viewModels
         }
+    }
+    
+    @objc func donePicker() {
+        if picker.selectedRow(inComponent: 0) > 0 {
+            currentiOSCurrency = allCurrencies[picker.selectedRow(inComponent: 0)]
+        }
+        
+        dummy.resignFirstResponder()
+    }
+    
+    @objc func cancelPicker() {
+        dummy.resignFirstResponder()
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -72,8 +118,20 @@ class CryptoListViewController: UITableViewController {
         navigationController?.pushViewController(vc, animated: true)
     }
     
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return allCurrencies[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return allCurrencies.count
+    }
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
     @objc func showPicker() {
-        
+        dummy.becomeFirstResponder()
     }
 }
 

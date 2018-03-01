@@ -39,6 +39,21 @@ class CryptoAndAssetsTrackerTests: XCTestCase {
         }
     }
     
+    func testBadCoinListData() {
+        guard let json = dataFor("MissingValuesCoinList") else {
+            XCTFail("Failed to get data from json file")
+            return
+        }
+        
+        do {
+            let coinList = try JSONDecoder().decode(CoinList.self, from: json)
+            XCTAssertTrue(coinList.data.isEmpty)
+        }
+        catch {
+            XCTAssertNotNil(error, "\(error.localizedDescription)")
+        }
+    }
+    
     func testCoinPrices() {
         guard let data = dataFor("CorrectCoinPriceList") else {
             XCTFail()
@@ -50,6 +65,23 @@ class CryptoAndAssetsTrackerTests: XCTestCase {
             XCTAssert(!coinPrices.display.isEmpty)
             let dollarValueOfBitCoin = coinPrices.display["BTC"]?.details["USD"]?.price
             XCTAssertEqual("$ 10,401.3", dollarValueOfBitCoin)
+        }
+        catch {
+            XCTFail("Failed to decode \(error.localizedDescription)")
+        }
+    }
+    
+    func testBadCoinPriceData() {
+        guard let data = dataFor("MissingValuesPriceList") else {
+            XCTFail()
+            return
+        }
+        
+        do {
+            let coinPrices = try JSONDecoder().decode(CoinPriceMeta.self, from: data)
+            XCTAssert(!coinPrices.display.isEmpty)
+            let dollarValueOfBitCoin = coinPrices.display["BTC"]?.details["USD"]?.price
+            XCTAssertNil(dollarValueOfBitCoin)
         }
         catch {
             XCTFail("Failed to decode \(error.localizedDescription)")
