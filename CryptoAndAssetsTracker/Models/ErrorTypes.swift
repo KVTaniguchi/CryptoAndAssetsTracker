@@ -12,3 +12,8 @@ enum NetworkingErrors: Error {
     case badURL
     case noData // we are going to assume we will *never* get an empty response
 }
+
+enum ModelError: Error {
+    case coinData
+    case coinPrice
+}

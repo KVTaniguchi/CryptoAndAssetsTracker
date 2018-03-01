@@ -11,7 +11,7 @@ import XCTest
 
 private class TestHelper {}
 
-func jsonFor(_ path: String, ext: String = "json") -> Data? {
+func dataFor(_ path: String, ext: String = "json") -> Data? {
     let actualBundle = Bundle(for: TestHelper.self)
     
     if let path = actualBundle.path(forResource: path, ofType: ext),

@@ -46,48 +46,74 @@ struct CoinInfo: Decodable {
     }
 }
 
+struct Detail: Decodable {
+    let fromSymbol: String
+    let toSymbol: String
+    let price: String
+    let highDay: String
+    let lowDay: String
+    let changeDay: String
+    let changePercentDay: String
 
-struct CoinPriceMeta {
-    let display: [Coin]
-    
     enum CodingKeys: String, CodingKey {
-        case display = "DISPLAY"
-    }
-    
-    struct Coin {
-        let coinPrices: [CoinPrices]
-        let name: String
-        
-        struct CodingKeys: CodingKey {
-            var stringValue: String
-            
-            init?(stringValue: String) {
-                self.stringValue = stringValue
-            }
-            
-            static func makeKey(name: String) -> CodingKeys? {
-                guard let key = CodingKeys(stringValue: name) else { return nil }
-                return key
-            }
-            
-            // there are not any Int value keys in these responses
-            var intValue: Int?
-            init?(intValue: Int) { return nil }
-        }
-        
-        struct CoinPrices {
-            let fromSymbol: String
-            let toSymbol: String
-            let price: String
-            let openDay: String
-            let highDay: String
-            let lowDay: String
-            let changeDay: String
-            let changePercentDay: String
-        }
+        case fromSymbol = "FROMSYMBOL"
+        case toSymbol = "TOSYMBOL"
+        case price = "PRICE"
+        case highDay = "HIGHDAY"
+        case lowDay = "LOWDAY"
+        case changeDay = "CHANGEDAY"
+        case changePercentDay = "CHANGEPCTDAY"
     }
 }
 
+struct Coin: Decodable {
+    
+    let details: [String: Detail]
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: GenericCodingKeys.self)
+        
+        var dict = [String: Detail]()
+        for key in container.allKeys {
+            let data = try container.decode(Detail.self, forKey: key)
+            dict[key.stringValue] = data
+        }
+        
+        self.details = dict
+    }
+}
 
+struct CoinPriceMeta: Decodable {
+    let display: [String: Coin]
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: GenericCodingKeys.self)
+        
+        var dict = [String: Coin]()
+        // nested for loop is faster than the functional methods .map .reduce
+        for key in container.allKeys {
+            if let value = try? container.nestedContainer(keyedBy: GenericCodingKeys.self, forKey: key)  {
+                for key in value.allKeys {
+                    let coin = try? value.decode(Coin.self, forKey: key)
+                    dict[key.stringValue] = coin
+                }
+            }
+        }
+        
+        self.display = dict
+    }
+}
 
+struct GenericCodingKeys: CodingKey, ExpressibleByStringLiteral {
+    // MARK: CodingKey
+    var stringValue: String
+    var intValue: Int?
+    
+    init?(stringValue: String) { self.stringValue = stringValue }
+    init?(intValue: Int) { return nil }
+    
+    // MARK: ExpressibleByStringLiteral
+    typealias StringLiteralType = String
+    init(stringLiteral: StringLiteralType) { self.stringValue = stringLiteral }
+}
 
