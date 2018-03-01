@@ -10,8 +10,6 @@ import Foundation
 
 class CryptoNetworkingController {
     
-    private let session = URLSession(configuration: .default)
-    
     static let shared = CryptoNetworkingController()
     
     func getTopVolumeCoins(toCurrency: String = "USD", completion: @escaping ((Result<CoinList>) -> Void)) {
@@ -28,7 +26,7 @@ class CryptoNetworkingController {
             return
         }
         
-        let task = session.dataTask(with: url) { (data, response, error) in
+        URLSession.shared.dataTask(with: url) { (data, response, error) in
             if let data = data {
                 do {
                     let coinList = try JSONDecoder().decode(CoinList.self, from: data)
@@ -44,9 +42,7 @@ class CryptoNetworkingController {
             else {
                 completion(Result(NetworkingErrors.noData))
             }
-        }
-        
-        task.resume()
+        }.resume()
     }
 
 }
