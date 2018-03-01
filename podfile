@@ -1,0 +1,6 @@
+platform :ios, '11.0'
+use_frameworks!
+
+target 'CryptoAndAssetsTracker' do
+    pod 'Kingfisher', '~> 4.6'
+end
