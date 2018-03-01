@@ -51,6 +51,7 @@ class CryptoListViewController: UITableViewController, UIPickerViewDelegate, UIP
         
         picker.dataSource = self
         picker.delegate = self
+        picker.accessibilityIdentifier = "picker"
         
         let toolBar = UIToolbar()
         toolBar.sizeToFit()
