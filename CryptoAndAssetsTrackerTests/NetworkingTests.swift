@@ -73,6 +73,64 @@ class NetworkingTests: XCTestCase {
                     assertionFailure(error.localizedDescription)
                 }
             }
+        }.resume()
+        
+        waitForExpectations(timeout: 5, handler: nil)
+    }
+    
+    func testGetCoinPriceMetaSuccess() {
+        let promise = expectation(description: "success")
+        var comps = URLComponents(string: Routes.baseHost)
+        comps?.path = "/data/pricemultifull"
+        let fromCryptoItem =  URLQueryItem(name: "fsyms", value: "BTC,ETH,DASH")
+        let toCurrency = URLQueryItem(name: "tsyms", value: "USD")
+        comps?.queryItems = [fromCryptoItem, toCurrency]
+        
+        guard let url = comps?.url else {
+            XCTFail()
+            return
+        }
+        
+        URLSession.shared.dataTask(with: url) { (data, _, error) in
+            if let data = data {
+                do {
+                    let coinPriceMeta = try JSONDecoder().decode(CoinPriceMeta.self, from: data)
+                    XCTAssertTrue(!coinPriceMeta.display.isEmpty)
+                    promise.fulfill()
+                }
+                catch {
+                    print(error)
+                }
+            }
+        }.resume()
+        
+        waitForExpectations(timeout: 5, handler: nil)
+    }
+    
+    func testGetCoinPriceMetaFailure() {
+        let promise = expectation(description: "success")
+        var comps = URLComponents(string: Routes.baseHost)
+        comps?.path = "/data/pricemultifull"
+        let fromCryptoItem =  URLQueryItem(name: "FAILURE", value: "qwerqwerqwerqwerqwerqwer")
+        let toCurrency = URLQueryItem(name: "FAILURE", value: "asdfasdfasdfasdf")
+        comps?.queryItems = [fromCryptoItem, toCurrency]
+        
+        guard let url = comps?.url else {
+            XCTFail()
+            return
+        }
+        
+        URLSession.shared.dataTask(with: url) { (data, _, error) in
+            if let data = data {
+                do {
+                    let coinPriceMeta = try JSONDecoder().decode(CoinPriceMeta.self, from: data)
+                    XCTAssertTrue(coinPriceMeta.display.isEmpty)
+                    promise.fulfill()
+                }
+                catch {
+                    print(error)
+                }
+            }
             }.resume()
         
         waitForExpectations(timeout: 5, handler: nil)

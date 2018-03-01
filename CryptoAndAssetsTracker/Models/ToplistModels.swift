@@ -90,7 +90,7 @@ struct CoinPriceMeta: Decodable {
         let container = try decoder.container(keyedBy: GenericCodingKeys.self)
         
         var dict = [String: Coin]()
-        // nested for loop is faster than the functional methods .map .reduce
+        // nested for loop is faster than the functional methods .map / .reduce
         for key in container.allKeys {
             if let value = try? container.nestedContainer(keyedBy: GenericCodingKeys.self, forKey: key)  {
                 for key in value.allKeys {

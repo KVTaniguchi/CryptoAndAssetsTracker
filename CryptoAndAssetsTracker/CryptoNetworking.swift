@@ -12,6 +12,8 @@ class CryptoNetworkingController {
     
     static let shared = CryptoNetworkingController()
     
+    private init() {}
+    
     func getTopVolumeCoins(toCurrency: String = "USD", completion: @escaping ((Result<CoinList>) -> Void)) {
         var comps = URLComponents(string: Routes.baseHost)
         comps?.path = "/data/top/totalvol"
@@ -26,7 +28,7 @@ class CryptoNetworkingController {
             return
         }
         
-        URLSession.shared.dataTask(with: url) { (data, response, error) in
+        URLSession.shared.dataTask(with: url) { (data, _, error) in
             if let data = data {
                 do {
                     let coinList = try JSONDecoder().decode(CoinList.self, from: data)
@@ -36,7 +38,7 @@ class CryptoNetworkingController {
                     completion(Result(error))
                 }
             }
-            if let error = error {
+            else if let error = error {
                 completion(Result(error))
             }
             else {
@@ -45,9 +47,38 @@ class CryptoNetworkingController {
         }.resume()
     }
 
+    func getCoinPrices(fromCrypto coins: [String], toCurrencies currencies: [String], completion: @escaping ((Result<CoinPriceMeta>) -> Void)) {
+        var comps = URLComponents(string: Routes.baseHost)
+        comps?.path = "/data/pricemultifull"
+        let fromCryptoItem =  URLQueryItem(name: "fsyms", value: coins.joined(separator: ","))
+        let toCurrency = URLQueryItem(name: "tsyms", value: currencies.joined(separator: ","))
+        comps?.queryItems = [fromCryptoItem, toCurrency]
+        
+        guard let url = comps?.url else {
+            completion(Result(NetworkingErrors.badURL))
+            return
+        }
+        
+        URLSession.shared.dataTask(with: url) { (data, _, error) in
+            if let data = data {
+                do {
+                    let coinPriceMeta = try JSONDecoder().decode(CoinPriceMeta.self, from: data)
+                    completion(Result(coinPriceMeta))
+                }
+                catch {
+                    completion(Result(error))
+                }
+            }
+            else if let error = error {
+                completion(Result(error))
+            }
+            else {
+                completion(Result(NetworkingErrors.noData))
+            }
+        }.resume()
+    }
 }
 
-// experimenting with ways to structure URLs
 struct Routes {
     static let baseHost = "https://min-api.cryptocompare.com"
 }
