@@ -50,7 +50,7 @@ class CryptoAndAssetsTrackerTests: XCTestCase {
             XCTAssertTrue(coinList.data.isEmpty)
         }
         catch {
-            XCTAssertNotNil(error, "\(error.localizedDescription)")
+            XCTAssertNotNil(error)
         }
     }
     
