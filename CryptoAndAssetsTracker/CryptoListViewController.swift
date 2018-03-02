@@ -77,11 +77,17 @@ class CryptoListViewController: UITableViewController, UIPickerViewDelegate, UIP
         CryptoNetworkingController.shared.loadInitialValues(stashCoinlist: { [weak self] coinList in
             self?.stashedCoinlist = coinList
         }) { [weak self] (result) in
-            guard let viewModels = result.value else {
-                return
+            switch result {
+            case .success(let value):
+                guard let value = value else {
+                    // error handling, empty success
+                    return
+                }
+                self?.dataSource = value
+            case .failure(let error):
+                // error handling
+                print(error)
             }
-
-            self?.dataSource = viewModels
         }
     }
     
