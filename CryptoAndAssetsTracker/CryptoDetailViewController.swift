@@ -35,6 +35,7 @@ class CryptoDetailViewController: UIViewController {
         let mainSV = UIStackView(arrangedSubviews: [coinImageView])
         mainSV.axis = .vertical
         mainSV.spacing = 20
+        mainSV.alignment = .center
         
         let leftSV = UIStackView(arrangedSubviews: [fullNameLabel, abbrLabel])
         leftSV.axis = .vertical

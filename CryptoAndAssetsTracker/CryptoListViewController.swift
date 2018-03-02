@@ -44,7 +44,6 @@ class CryptoListViewController: UITableViewController, UIPickerViewDelegate, UIP
         title = "Top Crypto Currencies"
         
         tableView.register(ListCryptoCell.self, forCellReuseIdentifier: "Cell")
-        tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedSectionHeaderHeight = 0
         tableView.estimatedSectionFooterHeight = 0
         tableView.estimatedRowHeight = 44
