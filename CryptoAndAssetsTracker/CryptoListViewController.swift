@@ -86,7 +86,7 @@ class CryptoListViewController: UITableViewController, UIPickerViewDelegate, UIP
     }
     
     @objc func donePicker() {
-        if picker.selectedRow(inComponent: 0) > 0 {
+        if picker.selectedRow(inComponent: 0) >= 0 {
             currentiOSCurrency = allCurrencies[picker.selectedRow(inComponent: 0)]
         }
         
