@@ -86,7 +86,7 @@ struct RawDetail: Decodable {
 }
 
 struct Coin: Decodable {
-    
+    // stashing by key makes it simple to build the view model
     let details: [String: Detail]
     let rawDetails: [String: RawDetail]
     
@@ -110,19 +110,18 @@ struct Coin: Decodable {
 }
 
 struct CoinPriceMeta: Decodable {
+    // stashing by key makes it simple to build the view model
     let display: [String: Coin]
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: GenericCodingKeys.self)
         
         var dict = [String: Coin]()
-        // nested for loop is faster than the functional methods .map / .reduce
-        for key in container.allKeys {
-            if let value = try? container.nestedContainer(keyedBy: GenericCodingKeys.self, forKey: key)  {
-                for key in value.allKeys {
-                    let coin = try? value.decode(Coin.self, forKey: key)
-                    dict[key.stringValue] = coin
-                }
+        
+        if let displayCodingKey = GenericCodingKeys(stringValue: "DISPLAY"), let value = try? container.nestedContainer(keyedBy: GenericCodingKeys.self, forKey: displayCodingKey)  {
+            for key in value.allKeys {
+                let coin = try? value.decode(Coin.self, forKey: key)
+                dict[key.stringValue] = coin
             }
         }
         
